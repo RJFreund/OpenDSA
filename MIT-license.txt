@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 The MIT License
 
 Copyright (c) 2011- Ville Karavirta and Cliff Shaffer
+=======
+OpenDSA Project
+Distributed under the MIT License
+
+Copyright (c) 2011-2013 - Ville Karavirta and Cliff Shaffer
+>>>>>>> abad67adbbfc01d84ef5b780a3cc758f9ef52911
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

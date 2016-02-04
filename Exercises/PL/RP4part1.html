@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html data-require="math RP4part1" lang="en">
+  <head>
+    <meta charset=utf-8>
+    <title>RP 4.1</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+    <script src="../../khan-exercises/local-only/main.js" ></script>
+    <link rel="stylesheet"  href="./styles.css" type="text/css" />
+  </head>
+
+  <body data-height="1520" data-width="950">
+    <div class="exercise">
+      <div class="vars">
+        <var id="init">RP4part1.init()</var>
+        <var id="tokens">RP4part1.tokenLines</var>
+        <var id="productions">RP4part1.productions</var>
+      </div>
+
+      <div class="problems">
+        <div id="RP4part1p">
+          <div class="question">
+	    <p class="question">Consider the following Jison grammar:</p>
+
+
+<pre class="string">
+%lex
+%%
+
+\s+                   /* skip whitespace */
+<var>tokens</var>&lt;&lt;EOF>>               return "EOF"
+.                     return "INVALID"
+
+/lex
+
+%start ss
+
+%% 
+
+ss
+  : s "EOF"
+  ;
+<var>productions</var>
+</pre>
+	    <p class="question">Now consider the following five strings:</p>
+	    <ul>
+	      <li>d e f a b c</li>
+	      <li>a b c d e f</li>
+	      <li>a b c e f</li>
+	      <li>d a</li>
+	      <li>a d</li>
+	    </ul>
+	    <p class="question">How many of these strings are parsed successfully according to the grammar above?</p>
+            <p class="solution" data-type="text">2</p>
+          <ul class="choices">
+	    <li>0</li>
+	    <li>1</li>
+	    <li>3</li>
+	    <li>4</li>
+	    <li>5</li>
+          </ul>
+	  </div>
+          <div class="hints">
+            <p>To do</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
