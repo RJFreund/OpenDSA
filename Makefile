@@ -240,7 +240,7 @@ ECE252: min
 	python $(CONFIG_SCRIPT) config/ECE252.json -c config/ECE252in_LMSconf.json -b ECE252S16
 
 DatabaseJoins: min
-	python $(CONFIG_SCRIPT) config/DatabaseJoins.json
+	python $(CONFIG_SCRIPT) config/DatabaseJoins.json --local
 
 India: min
 	python $(CONFIG_SCRIPT) config/DS2.json
