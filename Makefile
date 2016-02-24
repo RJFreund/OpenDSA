@@ -231,7 +231,11 @@ DatabaseJoins: min
 
 ECE252: min
 	python $(CONFIG_SCRIPT) config/ECE252S15.json
-
+	
+livieriRandom: min
+	python $(CONFIG_SCRIPT) config/livieriRandom.json --local
+livieriEmbed: min
+	python $(CONFIG_SCRIPT) config/livieriEmbed.json --local
 OpenDSA: min
 	python $(CONFIG_SCRIPT) config/OpenDSA.json
 
