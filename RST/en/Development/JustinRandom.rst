@@ -24,4 +24,14 @@ Visualization of the Algorithm
    :output: show
 
 
+JustinRrandom Excercise
+-----------------------
+
+.. avembed:: Exercises/Development/McJustinRandom.html ka
+	:output: show
+
+
+
+
+
 .. odsascript:: AV/Development/JustinRandom.js

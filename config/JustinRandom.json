@@ -25,7 +25,17 @@
     "JustinRandom Overview": {
       "Development/JustinRandom": {
         "long_name": "Explanation and Visualization of the JustinRandom Algorithm",
-        "sections": {}
+        "sections": {
+          "KA Justin Random Exercise":{
+            "McJustinRandom": {
+              "long_name": "JustinRandom Multiple Choice Exercise",
+              "required": true,
+              "points": 1.0,
+              "threshold": 3.0,
+              "showhide": "Show"
+            }
+          }
+        }
       }
     }
   }
