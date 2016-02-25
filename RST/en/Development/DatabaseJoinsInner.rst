@@ -21,7 +21,8 @@ Inner Join Slideshow Demo
 ============================================================
 Inner Join Embedded Demo
 ============================================================
-
+.. avembed:: AV/Development/DatabaseJoinsInnerEmbedSlideshow.html ss
+.. odsascript:: AV/Development/DatabaseJoinsInnerEmbedSlideshow.js
 
 ============================================================
 Inner Join Practice
