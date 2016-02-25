@@ -2,16 +2,19 @@
 
 $(document).ready(function () {
 
-  var makeMatrix = function(x){
-    return av.ds.matrix(x, {style: "table"});
+  //makes a matrix from a prebuilt nested array and an integer value representing the number of pixels from the left edge
+  var makeMatrix = function(x, fromLeft){
+    return av.ds.matrix(x, {style: "table", left: fromLeft});
   };
-
+  
+  //highlights blue the first row of an array (attribute titles) when passed a table alias and number of columns in the matrix
   var highlightFirstRow = function(table, cols){
     for(i = 0; i< cols;i++){
       table.css(0, i, {"background-color": "aqua", "color": "rgb(150, 55, 50)"});
     }
   };
 
+  //highlights yellow every cell (excluding the first) in the matrix when passed a table, number of rows, columns)
   var highlightAllCells = function(table,rows,cols){
     for(var i=1; i<rows+1;i++){
       for(var j=0;j<cols;j++){
@@ -19,53 +22,48 @@ $(document).ready(function () {
       }
     }
   };
+  // make label with placement options
+  var labelMaker = function(msg, fromLeft, fromTop){
+    return av.label(msg, {left: fromLeft, top: fromTop});
+  };
 
     JSAV.init();
 
     //create the JSAV object
     var av = new JSAV("DatabaseJoinsInnerSlideshow");
-    //initialize the array
-    var theArray = [];
-    //insert random integers in the array
-    for(i = 0; i < 11; i++){
-      theArray.push(Math.floor(Math.random() * 100));
-    }
 
     ////FIRST SLIDE STARTS HERE////
     av.umsg("To complete an inner join of the following tables R and S we need to identify common values.")
-    //data arrays (left to right)
-    var R1 = ["A", "B"];
-    var R2 = [1, 2];
-    var R3 = [3, 4];
-    var R4 = [4, 6];
-    //Create Table R 
-    var tableR = av.ds.matrix([R1, R2, R3, R4], {style: "table"}, {"left": 300, "top": 10 });
+    
+    //Create Table R
+    var R = [["A", "B"], [1, 2], [3, 4], [4, 6]]; 
+    var tableR = makeMatrix(R, 150);
     //Shade background for col titles
-    highlightFirstRow(tableR,2)
+    highlightFirstRow(tableR,2);
+    var labelR = labelMaker("Table R", 150, 200);
+    labelR.show();
     tableR.layout();
 
-    //data arrays (left to right)
-    var S1 = ["A", "C", "D"];
-    var S2 = [1, 5, 6];
-    var S3 = [2, 12, 11];
-    var S4 = [3, 7, 8];
-    //Create Table R 
-    var tableS = av.ds.matrix([S1, S2, S3, S4], {style: "table"}, {"relativeTo": tableR});
+    //Create Table S
+    var S = [["A", "C", "D"], [1, 5, 6], [2, 12, 11], [3, 7, 8]];
+    var tableS = makeMatrix(S, 350);
     //Shade background for col titles
-    highlightFirstRow(tableS, 4)
+    highlightFirstRow(tableS, 4);
+    var labelS = labelMaker("Table S", 360, 200);
+    labelS.show();
     tableS.layout();
 
 
     av.displayInit();
 
     ////SLIDE 2////
-    av.step()
+    av.step();
     av.umsg("Col A exists in both R and S and the first matching value is 1.");
     tableR.highlight(1,0);
     tableS.highlight(1,0);
 
     ////SLIDE 3////
-    av.step()
+    av.step();
     av.umsg("Col A exists in both R and S and the first matching value is 3.");
     tableR.highlight(2,0);
     tableS.highlight(3,0);
@@ -86,25 +84,14 @@ $(document).ready(function () {
     ////SLIDE 5////
     av.step();
     av.umsg("In our result table called RS each column is represented and only the rows that match appear as merged rows.");
-    var RSarr = [["A", "B", "C", "D"],[1,2,5,6],[3,4,7,8]];
-    var tableRS = makeMatrix(RSarr);
+    var RS = [["A", "B", "C", "D"],[1,2,5,6],[3,4,7,8]];
+    var tableRS = makeMatrix(RS, 550);
     highlightFirstRow(tableRS,4);
     highlightAllCells(tableRS,2,4);
+    var labelRS = labelMaker("Table RS", 570, 200);
+    labelRS.show();
     tableRS.layout();
 
-    ////SLIDE 6////
-    av.step();
-
-    //delete R and S 
-
-
-
-
-
-
-
-
-    
     //ENDSHOW
     av.recorded();
 });
