@@ -25,9 +25,10 @@ Inner Join Embedded Demo
 .. odsascript:: AV/Development/DatabaseJoinsInnerEmbedSlideshow.js
 
 ============================================================
-Inner Join Practice
+Inner Join Practice Exercise
 ============================================================
-
+.. avembed:: Exercises/Development/DatabaseJoinsInnerMC.html ka
+	:output: show
 
 
 .. odsascript:: AV/Development/DatabaseJoinsInnerSlideshow.js

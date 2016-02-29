@@ -25,7 +25,17 @@
     "Inner Joins": {
       "Development/DatabaseJoinsInner": {
         "long_name": "An Explanation of Inner Joins for Database Systems",
-        "sections": {}
+        "sections": {
+          "Inner Join Practice Exercise":{
+            "DatabaseJoinsInnerMC": {
+              "long_name": "Inner Join Multiple Choice Exercise",
+              "required": true,
+              "points": 1.0,
+              "threshold": 3.0,
+              "showhide": "Show"
+            }
+          }
+        }
       }
     },
     "Left Outer Joins": {
