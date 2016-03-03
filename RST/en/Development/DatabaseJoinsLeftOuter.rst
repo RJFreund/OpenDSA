@@ -14,11 +14,9 @@ Left Outer Join Textual
 ============================================================
 Left Outer Join Slideshow Demo
 ============================================================
-TODO: Add InnerJoin Slideshow
 
-.. inlineav:: DatabaseJoins ss
+.. inlineav:: DatabaseJoinsLeftOuterSlideshow ss
    :output: show
-
 
 ============================================================
 Left Outer Join Embedded Demo
@@ -31,4 +29,4 @@ Left Outer Join Practice
 
 
 
-.. odsascript:: AV/Development/DatabaseJoins.js
+.. odsascript:: AV/Development/DatabaseJoinsLeftOuterSlideshow.js
