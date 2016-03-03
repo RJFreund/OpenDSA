@@ -3,11 +3,11 @@
 (function ($) {
   var av;
 	function about() {
-	   alert("Simple array visualization");
+	   alert("Customize your table sizes that will be joined together.");
 	}
 	  
 	function help() {
-	   alert("Help for simple array visualization");
+	   alert("To use: Select the dropdown list for each table width and height and select desired value. When done, click run.  Then click on the middle right arrow to advance.");
 	}
 function runit(){
 		ODSA.AV.reset(true);
@@ -118,7 +118,10 @@ function runit(){
 
 
     av.displayInit();
-
+    //Here start joining the tables together********NOT STARTED********
+    //Know we are matching on alphabet[randomTable2ColumnToMatchTable1]. In table S, this is always in the first column.
+    //Table R we have to find by using randomTable2ColumnToMatchTable1 and match it to the correct table R row, 'R'...
+    //So if randomTable2ColumnToMatchTable1 = 1, Have to grab R2[0]
     ////SLIDE 2////
     av.step()
     av.umsg("Col A exists in both R and S and the first matching value is 1.");
