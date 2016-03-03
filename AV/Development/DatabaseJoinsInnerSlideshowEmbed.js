@@ -43,9 +43,9 @@ function runit(){
     var tableOneHeight = $("#table1height").val();
     var tableOneWidth = $("#table1width").val();
     var tableTwoHeight = $("#table2height").val();
-    var tableTwoWidth = $("table2width").val();
+    var tableTwoWidth = $("#table2width").val();
     
-    //data arrays (left to right)
+    //data arrays (left to right). start creating table 1
     //first table will go in order of alphabet...second table randomly selects one column from table one, 
     //then the rest of what didn't get selected in table 1
     var R1=[];
@@ -56,6 +56,7 @@ function runit(){
     for(var i=0;i<tableOneWidth;i++){
       R1[i]=alphabet[i];
     }
+    var randomTable2ColumnToMatchTable1=Math.floor((Math.random() * tableOneWidth));
     //fill in the rest of the table for all rows
     for(var i=0;i<tableOneWidth;i++){
       R2[i]=i;
@@ -77,15 +78,42 @@ function runit(){
     //Shade background for col titles
     highlightFirstRow(tableR,tableOneWidth)
     tableR.layout();
-    //data arrays (left to right)
-    var S1 = ["A", "C", "D"];
-    var S2 = [1, 5, 6];
-    var S3 = [2, 12, 11];
-    var S4 = [3, 7, 8];
-    //Create Table R 
-    var tableS = av.ds.matrix([S1, S2, S3, S4], {style: "table"}, {"relativeTo": tableR});
+    
+    
+    //data arrays (left to right). start creating table 2
+    //first table will go in order of alphabet...second table randomly selects one column from table one, 
+    //then the rest of what didn't get selected in table 2
+    var S1=[];
+    var S2=[];
+    var S3=[];
+    var S4=[];
+    var S5=[];
+    //make sure column matches a column from the first table, randomly.
+    S1[0]=alphabet[randomTable2ColumnToMatchTable1];
+    for(var i=1;i<tableTwoWidth;i++){
+      var alphabetSpot = +i + +tableOneWidth;
+      S1[i]=alphabet[alphabetSpot];
+    }
+    //fill in the rest of the table for all rows
+    for(var i=0;i<tableTwoWidth;i++){
+      S2[i]=i;
+      S3[i]=i+5;
+      S4[i]=i+10;
+      S5[i]=i+15;
+    }
+    var tableS;
+    //create table S based of table size
+    if(tableTwoHeight==2){
+      tableS = av.ds.matrix([S1, S2, S3], {style: "table"}, {"relativeTo": tableR});
+    }
+    if(tableTwoHeight==3){
+      tableS = av.ds.matrix([S1, S2, S3, S4], {style: "table"}, {"relativeTo": tableR});
+    }
+    if(tableTwoHeight==4){
+      tableS = av.ds.matrix([S1, S2, S3, S4, S5], {style: "table"}, {"relativeTo": tableR});
+    }
     //Shade background for col titles
-    highlightFirstRow(tableS, 4)
+    highlightFirstRow(tableS,tableTwoWidth)
     tableS.layout();
 
 
