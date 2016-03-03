@@ -16,7 +16,7 @@
 					<input type="button" id="help" name="help" value="Help" />
 				</td>
 				<td class="headerCenter avTitle">
-					Slideshow with array that can be reset to different values
+					Select your own table sizes to be joined together
 				</td>
 				<td class="headerRight">
 					<input type="button" id="about" name="about" value="About" />
@@ -27,20 +27,37 @@
 			<p>
 				<input type="button" id="runit" name="runit" value="Run" />
 				<input type="button" id="reset" name="reset" value="Reset" />
-				<label id="arraysizeLabel" for="arraysize"></label>
-				<select id="arraysize"></select>
 			<div>
 				<div>
 					<label>Table 1 Width</label>
-					<input id="table1Width" value="3" type="number"/>
+					<select id = "table1width">
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
 					<label>Table 1 Height</label>
-					<input id="table1Height" value="4" type="number"/>
+					<select id = "table1height">
+						<option value="3">3</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
 				</div>
 				<div class="marginTop10">
 					<label>Table 2 Width</label>
-					<input id="table2Width" value="4" type="number"/>
+					<select id = "table2width">
+						<option value="3">3</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
 					<label>Table 2 Height</label>
-					<input id="table2Height" value="3" type="number"/>
+					<select id = "table2height">
+						<option value="3">3</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
 				</div>
 			</div>
 		</form>
