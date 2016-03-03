@@ -121,7 +121,7 @@ function runit(){
     //Here start joining the tables together********NOT STARTED********
     //Know we are matching on alphabet[randomTable2ColumnToMatchTable1]. In table S, this is always in the first column.
     //Table R we have to find by using randomTable2ColumnToMatchTable1 and match it to the correct table R row, 'R'...
-    //So if randomTable2ColumnToMatchTable1 = 1, Have to grab R2[0]
+    //So if randomTable2ColumnToMatchTable1 = 1, Have to grab R2[0], THen check those columns for matching rows.
     ////SLIDE 2////
     av.step()
     av.umsg("Col A exists in both R and S and the first matching value is 1.");
