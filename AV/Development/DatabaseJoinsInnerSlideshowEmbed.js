@@ -16,7 +16,7 @@ function runit(){
   };
 
   var highlightFirstRow = function(table, cols){
-    for(i = 0; i< cols;i++){
+    for(var i = 0; i< cols;i++){
       table.css(0, i, {"background-color": "aqua", "color": "rgb(150, 55, 50)"});
     }
   };
@@ -32,26 +32,51 @@ function runit(){
 
     //create the JSAV object
     av = new JSAV($('.avcontainer'));
-    //initialize the array
-    var theArray = [];
-    //insert random integers in the array
-    for(i = 0; i < 11; i++){
-      theArray.push(Math.floor(Math.random() * 100));
-    }
+    //Create alphabet array for column headers
+    var alphabet = ['A', 'B', 'C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    
     av.displayInit();
     ////FIRST SLIDE STARTS HERE////
     av.umsg("To complete an inner join of the following tables R and S we need to identify common values.")
+    
+    //grab user input for tables
+    var tableOneHeight = $("#table1height").val();
+    var tableOneWidth = $("#table1width").val();
+    var tableTwoHeight = $("#table2height").val();
+    var tableTwoWidth = $("table2width").val();
+    
     //data arrays (left to right)
-    var R1 = ["A", "B"];
-    var R2 = [1, 2];
-    var R3 = [3, 4];
-    var R4 = [4, 6];
-    //Create Table R 
-    var tableR = av.ds.matrix([R1, R2, R3, R4], {style: "table"}, {"left": 300, "top": 10 });
+    //first table will go in order of alphabet...second table randomly selects one column from table one, 
+    //then the rest of what didn't get selected in table 1
+    var R1=[];
+    var R2=[];
+    var R3=[];
+    var R4=[];
+    var R5=[];
+    for(var i=0;i<tableOneWidth;i++){
+      R1[i]=alphabet[i];
+    }
+    //fill in the rest of the table for all rows
+    for(var i=0;i<tableOneWidth;i++){
+      R2[i]=i;
+      R3[i]=i+5;
+      R4[i]=i+10;
+      R5[i]=i+15;
+    }
+    var tableR;
+    //create table R based of table size
+    if(tableOneHeight==2){
+      tableR = av.ds.matrix([R1, R2, R3], {style: "table"}, {"left": 300, "top": 10 });
+    }
+    if(tableOneHeight==3){
+      tableR = av.ds.matrix([R1, R2, R3, R4], {style: "table"}, {"left": 300, "top": 10 });
+    }
+    if(tableOneHeight==4){
+      tableR = av.ds.matrix([R1, R2, R3, R4, R5], {style: "table"}, {"left": 300, "top": 10 });
+    }
     //Shade background for col titles
-    highlightFirstRow(tableR,2)
+    highlightFirstRow(tableR,tableOneWidth)
     tableR.layout();
-
     //data arrays (left to right)
     var S1 = ["A", "C", "D"];
     var S2 = [1, 5, 6];
