@@ -30,10 +30,10 @@ $(document).ready(function () {
     JSAV.init();
 
     //create the JSAV object
-    var av = new JSAV("DatabaseJoinsLeftOuterSlideshow");
+    var av = new JSAV("DatabaseJoinsRightOuterSlideshow");
 
     ////FIRST SLIDE STARTS HERE////
-    av.umsg("Left outer joins include all of table R and matching tuples of S from column A")
+    av.umsg("Right outer joins include all of table S and matching tuples of R from column A")
     
     //Create Table R
     var R = [["A", "B"], [1, 2], [3, 4], [4, 6]]; 
@@ -66,26 +66,24 @@ $(document).ready(function () {
 
     ////SLIDE 3////
     av.step();
-    av.umsg("Choose the right tuples for R, and include 4,6 because Table R completely moves to result table.");
-    highlightAllCells(tableR,3,2);
+    av.umsg("Choose the right tuples for S, and include 2,12,11 because Table S completely moves to result table.");
+    highlightAllCells(tableS,3,3);
 
     ////SLIDE 4////
     av.step();
-    av.umsg("Choose the right tuples for S");
-    tableS.highlight(1,1);
-    tableS.highlight(1,2);
-    tableS.highlight(3,1);
-    tableS.highlight(3,2);
+    av.umsg("Choose the right tuples for R");
+    tableR.highlight(1,1);
+    tableR.highlight(2,1);
+
 
     ////SLIDE 5////
     av.step();
     av.umsg("Build final table with your selected values. Notice the null space for non-matching tuple.");
-    var RS = [["A", "B", "C", "D"],[1,2,5,6],[3,4,7,8],[4,6,"",""]];
+    var RS = [["A", "B", "C", "D"],[1,2,5,6],[2,"",12,11],[3,4,7,8]];
     var tableRS = makeMatrix(RS, 550);
     highlightFirstRow(tableRS,4);
     highlightAllCells(tableRS,3,4);
-    tableRS.unhighlight(3,2);
-    tableRS.unhighlight(3,3);
+    tableRS.unhighlight(2,1);
     var labelRS = labelMaker("Table RS", 570, 200);
     labelRS.show();
     tableRS.layout();

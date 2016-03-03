@@ -14,11 +14,33 @@ $(document).ready(function () {
     }
   };
 
+  //highlight entire row when passed the table, the row to unhighlight, and number of cols
+  var highlightRow = function(table,row,cols){
+    for(var i=0;i<cols;i++){
+        table.highlight(row,i);
+      }
+  };
+
+  //remove highlight for entire row when passed the table, the row to unhighlight, and number of cols
+  var unhighlightRow = function(table,row,cols){
+    for(var i=0;i<cols;i++){
+        table.unhighlight(row,i);
+      }
+  };
+
   //highlights yellow every cell (excluding the first) in the matrix when passed a table, number of rows, columns)
   var highlightAllCells = function(table,rows,cols){
     for(var i=1; i<rows+1;i++){
       for(var j=0;j<cols;j++){
         table.highlight(i,j);
+      }
+    }
+  };
+  //highlights yellow every cell (excluding the first) in the matrix when passed a table, number of rows, columns)
+  var unhighlightAllCells = function(table,rows,cols){
+    for(var i=1; i<rows+1;i++){
+      for(var j=0;j<cols;j++){
+        table.unhighlight(i,j);
       }
     }
   };
@@ -30,10 +52,10 @@ $(document).ready(function () {
     JSAV.init();
 
     //create the JSAV object
-    var av = new JSAV("DatabaseJoinsLeftOuterSlideshow");
+    var av = new JSAV("DatabaseJoinsFullOuterSlideshow");
 
     ////FIRST SLIDE STARTS HERE////
-    av.umsg("Left outer joins include all of table R and matching tuples of S from column A")
+    av.umsg("Right outer joins include all of table S and matching tuples of R from column A")
     
     //Create Table R
     var R = [["A", "B"], [1, 2], [3, 4], [4, 6]]; 
@@ -66,26 +88,37 @@ $(document).ready(function () {
 
     ////SLIDE 3////
     av.step();
-    av.umsg("Choose the right tuples for R, and include 4,6 because Table R completely moves to result table.");
-    highlightAllCells(tableR,3,2);
+    av.umsg("Choose the right tuples for R & S");
+    highlightRow(tableR,1,2);
+    highlightRow(tableR,2,2);
+    highlightRow(tableS,1,3);
+    highlightRow(tableS,3,3);
 
     ////SLIDE 4////
     av.step();
-    av.umsg("Choose the right tuples for S");
-    tableS.highlight(1,1);
-    tableS.highlight(1,2);
-    tableS.highlight(3,1);
-    tableS.highlight(3,2);
+    av.umsg("In the fullouter join the non matches will also be in result with nulls.");
+    unhighlightAllCells(tableR,3,2);
+    unhighlightAllCells(tableS,3,3);
+    highlightRow(tableR,3,2);
+    highlightRow(tableS,2,3);
+
 
     ////SLIDE 5////
     av.step();
-    av.umsg("Build final table with your selected values. Notice the null space for non-matching tuple.");
-    var RS = [["A", "B", "C", "D"],[1,2,5,6],[3,4,7,8],[4,6,"",""]];
+    av.umsg("Build final table with your selected values. Notice the null space for non-matching tuples.");
+    
+    highlightAllCells(tableR,3,2);
+    highlightAllCells(tableS,3,3);
+    unhighlightRow(tableR,3,2);
+    unhighlightRow(tableS,2,3);
+
+    var RS = [["A", "B", "C", "D"],[1,2,5,6],[2,"",12,11],[3,4,7,8],[4,6,"",""]];
     var tableRS = makeMatrix(RS, 550);
     highlightFirstRow(tableRS,4);
-    highlightAllCells(tableRS,3,4);
-    tableRS.unhighlight(3,2);
-    tableRS.unhighlight(3,3);
+    highlightAllCells(tableRS,4,4);
+    tableRS.unhighlight(2,1);
+    tableRS.unhighlight(4,2);
+    tableRS.unhighlight(4,3);
     var labelRS = labelMaker("Table RS", 570, 200);
     labelRS.show();
     tableRS.layout();

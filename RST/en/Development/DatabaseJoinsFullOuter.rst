@@ -14,9 +14,8 @@ Full Outer Join Textual
 ============================================================
 Full Outer Join Slideshow Demo
 ============================================================
-TODO: Add InnerJoin Slideshow
 
-.. inlineav:: DatabaseJoins ss
+.. inlineav:: DatabaseJoinsFullOuterSlideshow ss
    :output: show
 
 
@@ -31,4 +30,4 @@ Full Outer Join Practice
 
 
 
-.. odsascript:: AV/Development/DatabaseJoins.js
+.. odsascript:: AV/Development/DatabaseJoinsFullOuterSlideshow.js

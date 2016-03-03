@@ -14,9 +14,8 @@ Right Outer Join Textual
 ============================================================
 Right Outer Join Slideshow Demo
 ============================================================
-TODO: Add InnerJoin Slideshow
 
-.. inlineav:: DatabaseJoins ss
+.. inlineav:: DatabaseJoinsRightOuterSlideshow ss
    :output: show
 
 
@@ -31,4 +30,4 @@ Right Outer Join Practice
 
 
 
-.. odsascript:: AV/Development/DatabaseJoins.js
+.. odsascript:: AV/Development/DatabaseJoinsRightOuterSlideshow.js
