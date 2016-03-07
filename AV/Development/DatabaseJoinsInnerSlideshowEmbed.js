@@ -96,7 +96,7 @@ function runit(){
     }
     //fill in the rest of the table for all rows
     for(var i=0;i<tableTwoWidth;i++){
-      S2[i]=i;
+      S2[i]=i+1;
       S3[i]=i+5;
       S4[i]=i+10;
       S5[i]=i+15;
@@ -122,6 +122,16 @@ function runit(){
     //Know we are matching on alphabet[randomTable2ColumnToMatchTable1]. In table S, this is always in the first column.
     //Table R we have to find by using randomTable2ColumnToMatchTable1 and match it to the correct table R row, 'R'...
     //So if randomTable2ColumnToMatchTable1 = 1, Have to grab R2[0], THen check those columns for matching rows.
+   
+   //highlight squares to match on then the rows
+    for(var i=0; i<tableTwoHeight;i++){
+      for(var j=0;j<tableOneHeight;j++){
+         if(tableS[j,0]==tableR[i,randomTable2ColumnToMatchTable1]){
+           console.log("In loop");
+           console.log(tableS[j,0]);
+         }
+      }
+    }
     ////SLIDE 2////
     av.step()
     av.umsg("Col A exists in both R and S and the first matching value is 1.");
