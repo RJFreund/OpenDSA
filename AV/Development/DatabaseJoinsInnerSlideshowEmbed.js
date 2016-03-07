@@ -65,15 +65,20 @@ function runit(){
       R5[i]=i+15;
     }
     var tableR;
+    //create a js matrix to go through to grab values
+    var tableRCheckMatrix;
     //create table R based of table size
     if(tableOneHeight==2){
       tableR = av.ds.matrix([R1, R2, R3], {style: "table"}, {"left": 300, "top": 10 });
+       tableRCheckMatrix = [[R1], [R2], [R3]];
     }
     if(tableOneHeight==3){
       tableR = av.ds.matrix([R1, R2, R3, R4], {style: "table"}, {"left": 300, "top": 10 });
+      tableRCheckMatrix = [[R1], [R2], [R3], [R4]];
     }
     if(tableOneHeight==4){
       tableR = av.ds.matrix([R1, R2, R3, R4, R5], {style: "table"}, {"left": 300, "top": 10 });
+      tableRCheckMatrix = [[R1], [R2], [R3], [R4], [R5]];
     }
     //Shade background for col titles
     highlightFirstRow(tableR,tableOneWidth)
@@ -102,15 +107,20 @@ function runit(){
       S5[i]=i+15;
     }
     var tableS;
+    //check matrix is used below to scan through and compare values of both tables
+    var tableSCheckMatrix;
     //create table S based of table size
     if(tableTwoHeight==2){
       tableS = av.ds.matrix([S1, S2, S3], {style: "table"}, {"relativeTo": tableR});
+      tableSCheckMatrix = [[S1], [S2], [S3]];
     }
     if(tableTwoHeight==3){
       tableS = av.ds.matrix([S1, S2, S3, S4], {style: "table"}, {"relativeTo": tableR});
+      tableSCheckMatrix = [[S1], [S2], [S3],[S4]];
     }
     if(tableTwoHeight==4){
       tableS = av.ds.matrix([S1, S2, S3, S4, S5], {style: "table"}, {"relativeTo": tableR});
+      tableSCheckMatrix = [[S1], [S2], [S3], [S4], [S5]];
     }
     //Shade background for col titles
     highlightFirstRow(tableS,tableTwoWidth)
@@ -124,14 +134,18 @@ function runit(){
     //So if randomTable2ColumnToMatchTable1 = 1, Have to grab R2[0], THen check those columns for matching rows.
    
    //highlight squares to match on then the rows
-    for(var i=0; i<tableTwoHeight;i++){
-      for(var j=0;j<tableOneHeight;j++){
-         if(tableS[j,0]==tableR[i,randomTable2ColumnToMatchTable1]){
-           console.log("In loop");
-           console.log(tableS[j,0]);
+    for(var i=1; i<=tableTwoHeight;i++){
+      for(var j=1;j<=tableOneHeight;j++){
+           var t1Val = tableRCheckMatrix[j][0][randomTable2ColumnToMatchTable1];
+           var t2Val = tableSCheckMatrix[i][0][0];
+         if(t1Val==t2Val){
+           av.step();
+           av.umsg("Column " + tableRCheckMatrix[0][0][randomTable2ColumnToMatchTable1] + " exists in both R and S. So we will join on "+ tableSCheckMatrix[i][0][0]);
+           tableR.highlight(j,0);
+           tableS.highlight(i,0);
          }
       }
-    }
+    }/**
     ////SLIDE 2////
     av.step()
     av.umsg("Col A exists in both R and S and the first matching value is 1.");
@@ -180,6 +194,7 @@ function runit(){
 
     
     //ENDSHOW
+    */
     av.recorded();
 }
 	// Connect action callbacks to the HTML entities
