@@ -159,17 +159,20 @@ function runit(){
          if(t1Value==t2Value){
             av.step();
            av.umsg("After join, the complete table looks like");
-           //set single arrays to rows for final table
+           //set single array rows for final table
            if(count==0){
              RS1 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
            }
            if(count==1){
              RS2 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
            }
-           if(count==1){
+           if(count==2){
              RS3 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
            }
            if(count==3){
+             RS4 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
+           }
+           if(count==4){
              RS4 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
            }
            count++;
@@ -187,6 +190,9 @@ function runit(){
     }
     if(count==4){
       finalTable=av.ds.matrix([RS1, RS2, RS3, RS4], {style: "table"}, {"relativeTo": tableS});
+    }
+    if(count==5){
+      finalTable=av.ds.matrix([RS1, RS2, RS3, RS4, RS5], {style: "table"}, {"relativeTo": tableS});
     }
     finalTable.layout();
      /**
