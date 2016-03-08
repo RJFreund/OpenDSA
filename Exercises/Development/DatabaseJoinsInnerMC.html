@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-require="math DatabaseJoinsInnerMC">
   <head>
-    <title>Pick the largest using multiple-choice</title>
+    <title>Pick correct joins attributes</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
     <script src="../../khan-exercises/local-only/main.js" ></script>
   </head>
@@ -9,7 +9,7 @@
   <body data-height="650" data-width="950">
     <div class="exercise">
       <div class="vars">
-        <var id="arrSize">randRange(4, 11)</var>
+        <var id="arrSize">[randRange(1, 6), randRange(1, 6)]</var>
   <var id="lastIndex">arrSize - 1</var>
         <var id="arrValues">databaseJoinsInnerMC.initArr(arrSize)</var>
         <var id="theAnswer">databaseJoinsInnerMC.maxValue()</var>
@@ -19,7 +19,7 @@
       </div>
       <div class="problems">
         <div id="databaseJoinsInnerMCp">
-          <p class="question">What is the largest value in this list of numbers? </p>
+          <p class="question">Which columns(attributes) will R -> S use in an Inner Join? </p>
     <pre><var>arrValues</var></pre>
           <div class="solution"> <var>theAnswer</var></div>
     <ul class="choices">
