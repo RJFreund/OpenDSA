@@ -128,11 +128,7 @@ function runit(){
 
 
     av.displayInit();
-    //Here start joining the tables together********NOT STARTED********
-    //Know we are matching on alphabet[randomTable2ColumnToMatchTable1]. In table S, this is always in the first column.
-    //Table R we have to find by using randomTable2ColumnToMatchTable1 and match it to the correct table R row, 'R'...
-    //So if randomTable2ColumnToMatchTable1 = 1, Have to grab R2[0], THen check those columns for matching rows.
-   
+
    //highlight squares to match on then the rows
     for(var i=1; i<=tableTwoHeight;i++){
       for(var j=1;j<=tableOneHeight;j++){
@@ -145,7 +141,55 @@ function runit(){
            tableS.highlight(i,0);
          }
       }
-    }/**
+    }
+    
+   av.step();
+   av.umsg("before join");
+    var finalTable=[];
+    var RS1 = [];
+    var RS2 = [];
+    var RS3 = [];
+    var RS4 = [];
+    var count = 0;
+    //create final table....not finished
+    for(var i=0; i<=tableTwoHeight;i++){
+      for(var j=0;j<=tableOneHeight;j++){
+           var t1Value = tableRCheckMatrix[j][0][randomTable2ColumnToMatchTable1];
+           var t2Value = tableSCheckMatrix[i][0][0];
+         if(t1Value==t2Value){
+            av.step();
+           av.umsg("After join, the complete table looks like");
+           //set single arrays to rows for final table
+           if(count==0){
+             RS1 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
+           }
+           if(count==1){
+             RS2 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
+           }
+           if(count==1){
+             RS3 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
+           }
+           if(count==3){
+             RS4 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
+           }
+           count++;
+         }
+      }
+    }
+    if(count==1){
+      finalTable=av.ds.matrix([RS1], {style: "table"}, {"relativeTo": tableS});
+    }
+    if(count==2){
+      finalTable=av.ds.matrix([RS1, RS2], {style: "table"}, {"relativeTo": tableS});
+    }
+    if(count==3){
+      finalTable=av.ds.matrix([RS1, RS2, RS3], {style: "table"}, {"relativeTo": tableS});
+    }
+    if(count==4){
+      finalTable=av.ds.matrix([RS1, RS2, RS3, RS4], {style: "table"}, {"relativeTo": tableS});
+    }
+    finalTable.layout();
+     /**
     ////SLIDE 2////
     av.step()
     av.umsg("Col A exists in both R and S and the first matching value is 1.");
@@ -195,6 +239,7 @@ function runit(){
     
     //ENDSHOW
     */
+    av.step();
     av.recorded();
 }
 	// Connect action callbacks to the HTML entities
