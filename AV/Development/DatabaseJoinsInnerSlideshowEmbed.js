@@ -137,7 +137,7 @@ function runit(){
          if(t1Val==t2Val){
            av.step();
            av.umsg("Column " + tableRCheckMatrix[0][0][randomTable2ColumnToMatchTable1] + " exists in both R and S. So we will join on "+ tableSCheckMatrix[i][0][0]);
-           tableR.highlight(j,0);
+           tableR.highlight(j,randomTable2ColumnToMatchTable1);
            tableS.highlight(i,0);
          }
       }
@@ -159,21 +159,27 @@ function runit(){
          if(t1Value==t2Value){
             av.step();
            av.umsg("After join, the complete table looks like");
+           //temp stores table S without the join on column so there is not double
+           var temp = [];
+           temp[0] = tableSCheckMatrix[i][0][1];
+           for(var k=2; k<tableTwoWidth; k++){
+              temp[k-1] = tableSCheckMatrix[i][0][k];
+           }
            //set single array rows for final table
            if(count==0){
-             RS1 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
+             RS1 = tableRCheckMatrix[j][0].concat(temp);
            }
            if(count==1){
-             RS2 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
+             RS2 = tableRCheckMatrix[j][0].concat(temp);
            }
            if(count==2){
-             RS3 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
+             RS3 = tableRCheckMatrix[j][0].concat(temp);
            }
            if(count==3){
-             RS4 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
+             RS4 = tableRCheckMatrix[j][0].concat(temp);
            }
            if(count==4){
-             RS4 = tableRCheckMatrix[j][0].concat(tableSCheckMatrix[i][0]);
+             RS4 = tableRCheckMatrix[j][0].concat(temp);
            }
            count++;
          }
@@ -195,6 +201,7 @@ function runit(){
       finalTable=av.ds.matrix([RS1, RS2, RS3, RS4, RS5], {style: "table"}, {"relativeTo": tableS});
     }
     finalTable.layout();
+    highlightFirstRow(finalTable,(tableTwoWidth+tableOneWidth-1));
      /**
     ////SLIDE 2////
     av.step()
