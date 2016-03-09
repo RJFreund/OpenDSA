@@ -149,24 +149,28 @@
         }
       }
     }
-
+    /*
+    final table
+    */
     av.step();
-    av.umsg("before join");
+    av.umsg("Matching columns and rows completed. Before joining....");
     var finalTable = [];
+    //row arrays
     var RS1 = [];
     var RS2 = [];
     var RS3 = [];
     var RS4 = [];
+    var RS5 = [];
     var count = 0;
-                  av.step();
-          av.umsg("After join, the complete table looks like");
-    //create final table....not finished
+    av.step();
+    av.umsg("After join, the joined table looks like");
+    //create final table
     for (var i = 0; i <= tableTwoHeight; i++) {
       for (var j = 0; j <= tableOneHeight; j++) {
         var t1Value = tableRCheckMatrix[j][0][randomTable2ColumnToMatchTable1];
         var t2Value = tableSCheckMatrix[i][0][0];
         if (t1Value == t2Value) {
-          //temp stores table S without the join on column so there is not double
+          //temp stores table S without the join on column so there is not double column in final table
           var temp = [];
           temp[0] = tableSCheckMatrix[i][0][1];
           for (var k = 2; k < tableTwoWidth; k++) {
@@ -186,12 +190,13 @@
             RS4 = tableRCheckMatrix[j][0].concat(temp);
           }
           if (count == 4) {
-            RS4 = tableRCheckMatrix[j][0].concat(temp);
+            RS5 = tableRCheckMatrix[j][0].concat(temp);
           }
           count++;
         }
       }
     }
+    //depending on how many rows, create the final av table matrix
     if (count == 1) {
       finalTable = av.ds.matrix([RS1], { style: "table" }, { "relativeTo": tableS });
     }
@@ -209,56 +214,8 @@
     }
     finalTable.layout();
     highlightFirstRow(finalTable, (tableTwoWidth + tableOneWidth - 1));
-    /**
-   ////SLIDE 2////
-   av.step()
-   av.umsg("Col A exists in both R and S and the first matching value is 1.");
-   tableR.highlight(1,0);
-   tableS.highlight(1,0);
-
-   ////SLIDE 3////
-   av.step()
-   av.umsg("Col A exists in both R and S and the first matching value is 3.");
-   tableR.highlight(2,0);
-   tableS.highlight(3,0);
-
-   ////SLIDE 4////
-   av.step();
-   av.umsg("In the resulting table we will take the entire rows where the column values matched." +
-           "This means all the highlighted values will appear in RS");
-
-   tableR.highlight(1,1);
-   tableR.highlight(2,1);
-   tableS.highlight(1,1);
-   tableS.highlight(1,2);
-   tableS.highlight(1,3);
-   tableS.highlight(3,1);
-   tableS.highlight(3,2);
-
-   ////SLIDE 5////
-   av.step();
-   av.umsg("In our result table called RS each column is represented and only the rows that match appear as merged rows.");
-   var RSarr = [["A", "B", "C", "D"],[1,2,5,6],[3,4,7,8]];
-   var tableRS = makeMatrix(RSarr);
-   highlightFirstRow(tableRS,4);
-   highlightAllCells(tableRS,2,4);
-   tableRS.layout();
-
-   ////SLIDE 6////
-   av.step();
-
-   //delete R and S 
-
-
-
-
-
-
-
-
    
    //ENDSHOW
-   */
     av.step();
     av.recorded();
   }
