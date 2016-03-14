@@ -3,7 +3,7 @@
 .. Copyright (c) 2012-13 by the OpenDSA Project Contributors, and
 .. distributed under an MIT open source license.
 
-.. avmetadata:: 
+.. avmetadata::
    :author: RJ Freund, Justin Gottschalk, Shane Livieri
 
 ============================================================
@@ -18,7 +18,6 @@ Inner Join Slideshow Demo
 .. inlineav:: DatabaseJoinsInnerSlideshow ss
    :output: show
 
-
 ============================================================
 Inner Join Embedded Demo
 ============================================================
@@ -27,8 +26,9 @@ Inner Join Embedded Demo
 ============================================================
 Inner Join Practice Exercise
 ============================================================
+Practice joins by determining which columns the table will join on if any.
+
 .. avembed:: Exercises/Development/DatabaseJoinsInnerMC.html ka
 	:output: show
-
 
 .. odsascript:: AV/Development/DatabaseJoinsInnerSlideshow.js
