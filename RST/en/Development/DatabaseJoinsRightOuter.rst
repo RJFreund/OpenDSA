@@ -3,7 +3,7 @@
 .. Copyright (c) 2012-13 by the OpenDSA Project Contributors, and
 .. distributed under an MIT open source license.
 
-.. avmetadata:: 
+.. avmetadata::
    :author: RJ Freund, Justin Gottschalk, Shane Livieri
 
 ============================================================
@@ -18,16 +18,12 @@ Right Outer Join Slideshow Demo
 .. inlineav:: DatabaseJoinsRightOuterSlideshow ss
    :output: show
 
-
-============================================================
-Right Outer Join Embedded Demo
-============================================================
-
-
 ============================================================
 Right Outer Join Practice
 ============================================================
+Practice joins by determining which columns the table will join on if any.
 
-
+.. avembed:: Exercises/Development/DatabaseJoinsInnerMC.html ka
+	:output: show
 
 .. odsascript:: AV/Development/DatabaseJoinsRightOuterSlideshow.js
