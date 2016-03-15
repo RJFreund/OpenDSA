@@ -9,11 +9,15 @@
 ============================================================
 Right Outer Join Textual
 ============================================================
-
+A right outer join is the same result as an inner join plus the unmatched rows 
+from table S.  The final table is produced from taking the matching column and rows,
+while also adding the unmatched rows with a null counterpart. 
 
 ============================================================
 Right Outer Join Slideshow Demo
 ============================================================
+Below shows two tables, you may either click the far right arrow and skip
+right to the end product. Or click the single right arrow and see how the join is done step by step.
 
 .. inlineav:: DatabaseJoinsRightOuterSlideshow ss
    :output: show

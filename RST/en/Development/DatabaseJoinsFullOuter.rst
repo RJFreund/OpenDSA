@@ -9,11 +9,14 @@
 ============================================================
 Full Outer Join Textual
 ============================================================
-
+Full outer joins join both tables together.  The final table is produced by
+taking every row from table S and combining with every row from table R.
 
 ============================================================
 Full Outer Join Slideshow Demo
 ============================================================
+Below shows two tables, you may either click the far right arrow and skip
+right to the end product. Or click the single right arrow and see how the join is done step by step.
 
 .. inlineav:: DatabaseJoinsFullOuterSlideshow ss
    :output: show
