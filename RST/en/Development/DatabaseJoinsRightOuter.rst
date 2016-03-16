@@ -9,9 +9,12 @@
 ============================================================
 Right Outer Join Textual
 ============================================================
-A right outer join is the same result as an inner join plus the unmatched rows 
-from table S.  The final table is produced from taking the matching column and rows,
-while also adding the unmatched rows with a null counterpart. 
+A right outer join is the same matches as an inner join plus the unmatched rows
+from table S will be in the result table.  The final table is produced from
+taking the matching column and rows, while also adding the unmatched rows with
+a null counterpart for the empty entries from the R columns.
+
+What this really means is if R and S are sets RS = S-R. 
 
 ============================================================
 Right Outer Join Slideshow Demo

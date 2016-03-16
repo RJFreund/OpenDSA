@@ -9,9 +9,12 @@
 ============================================================
 Left Outer Join Textual
 ============================================================
-A left outer join is the same result as an inner join plus the unmatched rows 
-from table R. The final table is produced from taking the matching column and rows,
-while also adding the unmatched rows with a null counterpart.
+A left outer join has the same matches as an inner join plus the unmatched rows
+from table R will be in the result table. The final table is produced from
+taking the matching column and rows, while also adding the unmatched rows
+with a null counterpart for the empty entries from the S columns.
+
+What this really means is if R and S are sets RS = R-S.
 
 ============================================================
 Left Outer Join Slideshow Demo

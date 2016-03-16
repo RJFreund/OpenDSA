@@ -9,10 +9,12 @@
 ============================================================
 Inner Join Textual
 ============================================================
-In this example, the inner join takes in two tables, match of the same column,
-and join together the rows with the matching value in that column. The final
-table is the matching rows from table S and the matching rows from table combined together.
-In math terms, it is an 'And'.
+Inner joins are based on two tables having one or more of the same attribute or column name.
+Within these columns where there are matching values we merge these rows together in a result table on that value.
+Therefore if we have R(ABD) and S(ACD) the columns that match are A & D.
+Within A & D assume there is just one match a row from R (1 2 3) and S (1 5 3) = RS (1 2 5 3) in the form RS(ABCD).
+
+What this really means is if R and S are sets RS = R^S. 
 
 ============================================================
 Inner Join Slideshow Demo

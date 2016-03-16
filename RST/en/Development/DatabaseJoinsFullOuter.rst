@@ -9,8 +9,11 @@
 ============================================================
 Full Outer Join Textual
 ============================================================
-Full outer joins join both tables together.  The final table is produced by
-taking every row from table S and combining with every row from table R.
+Full outer joins join both tables together accounting for matches but also
+bringing along their individual, unmatched row and filling in nulls as noted
+previously.
+
+What this really means is if R and S are sets RS = RvS.
 
 ============================================================
 Full Outer Join Slideshow Demo
